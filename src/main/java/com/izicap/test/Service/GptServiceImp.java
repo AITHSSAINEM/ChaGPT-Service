@@ -26,7 +26,6 @@ import java.nio.file.Path;
 public class GptServiceImp implements GptService{
 
     public GptResponse sendToGpt(String message) throws IOException, EmptyQuestionExcetion {
-    	log.info("message :"+message);
     	if(message.isBlank()) {
         	throw new EmptyQuestionExcetion("Empty question !");
     	}
