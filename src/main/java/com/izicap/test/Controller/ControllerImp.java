@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.izicap.test.Service.GptService;
 import com.izicap.test.exceptions.EmptyQuestionExcetion;
+import com.izicap.test.exceptions.TokenExpiredException;
 import com.izicap.test.model.GptResponse;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class ControllerImp{
     
     
     @GetMapping("/send")
-    public GptResponse send(@RequestParam("question") String question) throws IOException, EmptyQuestionExcetion {
+    public GptResponse send(@RequestParam("question") String question) throws IOException, EmptyQuestionExcetion, TokenExpiredException {
         return gptService.sendToGpt(question);
     }
 }
